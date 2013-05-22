@@ -17,19 +17,6 @@ def gradefinder(X, html):
     return after[:x]
 
 
-
-##def name(string):
-##    '''finds the name of the course from the string'''
-##    n = string.find("</a>")
-##    return string[:n]
-##
-##names = [name(x) for x in courselist] #for texting
-
-
-#response = urllib.request.urlopen(jupiter)
-#html = response.read()
-#html=str(html)
-#Email stuff
 def login():
     smtpserv="smtp.gmail.com:587"
     mailserver=smtplib.SMTP(smtpserv)
@@ -37,42 +24,11 @@ def login():
     mailserver.login(user,password)
 
 def message(tolist, message):
-    user="mising.grade.tracker@gmail.com"
-    password="tommywiseau"
     smtpserv="smtp.gmail.com:587"
     mailserver=smtplib.SMTP(smtpserv)
     mailserver.starttls()
     mailserver.login(user,password)
     mailserver.sendmail(user,tolist,message)
-
-#login()
-#message('misingnoglic@gmail.com','The script has started hopefully')
-
-###
-
-
-##def gradefinder(stringbefore, html):
-##    '''Finds the grade for one class'''
-##    if (stringbefore in html)==False: return None #If a teacher hid a grade, this makes the program not crash
-##    gradeplace = html.find(stringbefore) + len(stringbefore) #finds location of string
-##    grade = (html[gradeplace:gradeplace+10]) #cuts the string to what is needed
-##    end = grade.find('%')
-##    return float((html[gradeplace:gradeplace+end])) #gets exactly the number
-##
-##def stringfinder(course):
-##    '''Finds the string to put into the Variables'''
-##    gradenum = html.find(course)
-##    bigarea = html[gradenum:gradenum+300]
-##    end = bigarea.find('&nbsp')
-##    newstring = bigarea[:end]
-##    reverse = newstring[::-1]
-##    num = reverse.find(">")
-##    return newstring[:end-num]
-##    Old function that used to work
-##    gradenum = html.find(grade)
-##    bigarea = html[gradenum-300:gradenum]
-##    shit = bigarea.find(course)
-##    return html[(gradenum-300)+shit:gradenum]
 
 def gradechecker(jupiter, courselist, names, email, phonemail, tolist):
     '''Main Program, constantly checks grades'''
